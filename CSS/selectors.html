@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        /* Element selector  */
+        h1{
+            color: red;
+        }
+
+        /* p{
+            background-color: yellow;
+        } */
+
+        /* Class selector ( can be used mutiple times ) */
+
+        .bgblue{
+            background-color: blue;
+        }
+
+        .colorwhite{
+            color:  white ;
+        }
+
+        /*  Id selectors ( always unique ) */
+
+        #ptag{
+            font-family: cursive;
+        }
+
+        /* Attribute selectors  */
+
+        [href="www.youtube.com"]{
+            text-decoration: none;
+        }
+
+        [ placeholder="name"]{
+            color : red ;
+        }
+
+        [for="age"]{
+            background-color: lightgreen;
+        }
+
+        /*  Universal selcetor  */
+
+        /* *{
+            border: 2px dotted red;
+        } */
+
+        /* Pesudo selcetors  */
+
+        h1:hover{
+             background-color: lightgoldenrodyellow;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit.</h1>
+
+    <p  class="bgblue colorwhite"> Lorem ipsum dolor sit amet.</p>
+
+    <p class="bgblue"> Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+
+    <p id="ptag"> Lorem ipsum dolor sit.</p>
+
+    <a href="www.youtube.com"> Youtube Link </a>
+
+    <input id="age" type="text" placeholder="name" >
+
+    <label for="age"> NAME </label>
+
+
+</body>
+</html>

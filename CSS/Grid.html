@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .parent-cont{
+            height: 100vh;
+            width: 100vw;
+            border: 2px solid black;
+            background-color: #FFF9D0;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr  ;
+            grid-template-columns: 1fr 1fr 1fr ;
+        }
+
+        .box{
+            background-color: #5AB2FF;
+            border: 10px solid ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        #id1{
+            grid-column: 1/4;
+        }
+
+        #id2{
+            grid-row : 2/4;
+        }
+        #id3{
+            grid-column: 2/4;
+        }
+
+        #id6{
+            grid-column: 1/4;
+        }
+
+        @media ( orientation : portrait){
+
+            .parent-cont{
+            height: 100vh;
+            width: 100vw;
+            border: 2px solid black;
+            background-color: #FFF9D0;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .box{
+            background-color: #5AB2FF;
+            border: 10px solid ;
+            width: 100%;
+            height: 17%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-cont">
+        <div class="box" id="id1">Header </div>
+        <div class="box" id="id2">SideBar </div>
+        <div class="box" id="id3">Content1</div>
+        <div class="box" id="id4">content2</div>
+        <div class="box" id="id5">content3</div>
+        <div class="box" id="id6">Footer</div>
+    </div>
+</body>
+</html>

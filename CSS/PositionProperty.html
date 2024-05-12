@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .parent{
+            height: 500px;
+            width: 500px;
+            background-color: lightcoral;
+        }
+
+        .child{
+            height: 100px;
+            width: 100px;
+            border: 1px solid;
+        }
+
+        #one{
+            background-color: lightgray;
+            position: static;
+        }
+
+        #two{
+            background-color: lightgreen;
+            /* position: relative;
+            left: 100px;
+            top:200px */
+        }
+
+        #three{
+            background-color: lightskyblue;
+            /* position: absolute;
+            top: 100px;
+            left: 100px; */
+        }
+        #four{
+             /*  body/screen */
+            background-color: lightslategray;
+            /* position: fixed;
+            top: 0px; */
+        }
+
+        #five{
+            background-color: lightpink;
+            position: sticky;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child" id="one"></div>
+        <div class="child" id="two"></div>
+        <div class="child" id="five"> Sticky</div>
+        <div class="child" id="three"> Absolute </div>
+        <div class="child" id="four">Fixed </div>
+       
+    </div>
+
+    <div style="height: 300vh; background-color: lightsteelblue;"></div>
+</body>
+</html>
