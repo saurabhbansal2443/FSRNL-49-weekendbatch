@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     function makeMaggi(raw){
+//     let pr = new Promise((resolve, reject) => {
+//         if(raw != undefined){
+            
+//                 resolve("Maggi is ready ");
+           
+//         }else{
+//             reject("Not Ready ")
+//         }
+//     })
+//     return pr;
+// }
+// console.log(makeMaggi("maggi"))
+
+    function task1(raw){
+    let pr1 = new Promise((resolve, reject) => {
+        if(raw != undefined){
+            setTimeout(()=>{ resolve("task1  ");},2000)
+   
+           
+        }else{
+            reject("task1 Not Ready ")
+        }
+    })
+    return pr1;
+}
+
+function task2(raw){
+    let pr1 = new Promise((resolve, reject) => {
+        if(raw != undefined){
+            
+            setTimeout(()=>{ resolve("task2  ");},2000)
+           
+        }else{
+            reject(" task2 Not Ready ")
+        }
+    })
+    return pr1;
+}
+
+
+function task3(raw){
+    let pr1 = new Promise((resolve, reject) => {
+        if(raw != undefined){
+            
+            setTimeout(()=>{ resolve("task3  ");},2000)
+           
+        }else{
+            reject("Task3 Not Ready ")
+        }
+    })
+    return pr1;
+}
+
+console.log("Start")
+
+
+// task1("ta").then((res)=>{
+//     console.log("Task 1 is completed ")
+//     return task2( )
+// }).then(function (res2){
+//     console.log("task2 is completed ")
+//     return task3(res2)
+// }).then((res3)=>{
+//     console.log("task3 is completed ")
+// }).catch((err)=>{
+//     console.log(err)
+// })
+// async // await 
+
+// async function abc (){
+
+//     try{
+//     let ans1 = await task1("refd")
+//     console.log(ans1);
+//     let ans2 = await task2();
+//     console.log(ans2);
+//     let ans3 = await task3(ans2);
+//     console.log(ans3);
+//     }catch(err){
+//         console.log(err)
+//     }
+// }
+
+// abc();
+// console.log("End")
+
+
+
+// function first(){
+//     setTimeout(()=>{
+//         console.log("First task is completed ")
+//     },1000)
+// }
+
+// function second(){
+//     setTimeout(()=>{
+//         console.log("First task is completed ")
+//     },2000)
+// }
+
+// function first(){
+//     setTimeout(()=>{
+//         console.log("First task is completed ")
+//     },3000)
+// }
+
+
+let p1 = new Promise((resolve)=>{
+    setTimeout(()=>{
+       resolve("First Task ")
+    },1000)
+})
+
+let p2 = new Promise((resolve)=>{
+    setTimeout(()=>{
+        resolve("Second Task ")
+    },2000)
+})
+
+let p3 = new Promise((resolve)=>{
+    setTimeout(()=>{
+       resolve("Third Task ")
+    },3000)
+})
+
+
+
+Promise.all([p1,p2,p3]).then((ans)=>[
+    console.log(ans)
+])  
+
+
+
+</script>
+</html>
+
+
+
+
