@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <!--  -->
+    </div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script>
+    let reactEle = React.createElement("div", { className: "parent" }, [
+      "parent",
+      React.createElement("div", { className: "child" }, [
+        "child1",
+        React.createElement("h1", {}, "GrandChild1"),
+      ]),
+      React.createElement("div", { className: "child" }, [
+        "child2",
+        React.createElement("h1", {}, "GrandChild2"),
+      ]),
+    ]);
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+
+    root.render(reactEle);
+
+    // console.log("reactobj" , React);
+    // console.log("ReactDOM", ReactDOM);
+
+    // let reactEle = React.createElement("h1",{id : "h1tag"},"This is react Element");
+
+    // console.log(reactEle)
+
+
+    // JSX -- babel 
+  </script>
+</html>
