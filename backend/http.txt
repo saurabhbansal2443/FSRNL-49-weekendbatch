@@ -1,0 +1,29 @@
+import http from "http";
+import fs from "fs";
+
+let indexHtml = fs.readFileSync("./index.html", "utf-8");
+let productsData = fs.readFileSync("./data.json", "utf-8");
+let data = JSON.parse(productsData);
+let productArray = data.products;
+
+const server = http.createServer((req, res) => {
+  if (req.url == "/") {
+    res.setHeader("Content-type", "text/html");
+    res.end(indexHtml);
+  } else if (req.url == "/api") {
+    res.setHeader("Content-type", "application/json");
+    res.end(productsData);
+  } else if (req.url.startsWith("/product")) {
+    let id = req.url.split("/")[2];
+
+    let product = productArray.find((obj) => obj.id == id);
+    res.setHeader("Content-type", "text/html");
+    let { rating, title } = product;
+    let modifiedHtml = indexHtml
+      .replace("**title**", title)
+      .replace("**rating**", rating);
+    res.end(modifiedHtml);
+  }
+});
+
+server.listen(8000);
