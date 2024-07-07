@@ -1,29 +1,15 @@
 import express from "express";
+import productRouter from "./Routes/products.routes.js";
+import userRouter from "./Routes/users.routes.js"
 
 let server = express();
 
 let port = 8000;
 
-server.get("/", (req, res) => {
-  res.send({ requestType: "Get" });
-});
+server.use(express.json());
 
-server.post("/", (req, res) => {
-  res.send({ reqType: "POST" });
-});
-
-server.put("/", (req, res) => {
-  res.send({ reqType: "PUT" });
-});
-
-server.patch("/", (req, res) => {
-  res.send({ reqType: "Patch" });
-});
-
-server.delete("/", (req, res) => {
-  res.send({ reqType: "delete" });
-});
-
+server.use("/products", productRouter);
+server.use("/users", userRouter);
 server.listen(port, () => {
-  console.log("Server is running at ", port);
+  console.log(`Server is running on http://localhost:${port}`);
 });

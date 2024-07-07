@@ -1,0 +1,56 @@
+import express from "express";
+
+let server = express();
+
+let port = 8000;
+
+server.use(express.json()); // It will parse the body data  // Built in middleware , application level middelware 
+
+// server.use((req,res, next )=>{  // application level middleware  // custom middlewlare
+//   if(req.query.password == 123){
+//     next();
+//   }else{
+//     res.json({result : "Not authenticated "})
+//   }
+// })
+
+let auth = (req, res, next) => {
+  //custom middelware
+  if (req.query.password == 123) {
+    next();
+  } else {
+    res.json({ result: "Not authenticated " });
+  }
+};
+
+// get post put patch delete
+server.get("/", (req, res) => {
+  res.send({ requestType: "Get" });
+});
+
+server.get("/products/:id", (req, res) => {
+  console.log(req.params.id);
+  res.send(" This is products route ");
+});
+
+server.post("/", (req, res) => {
+  console.log(req.body);
+  res.send({ reqType: "POST" });
+});
+
+server.put("/", auth, (req, res) => {
+  // router level middelware
+  res.send({ reqType: "PUT" });
+});
+
+server.patch("/", (req, res) => {
+  res.send({ reqType: "Patch" });
+});
+
+server.delete("/", (req, res) => {
+  res.send({ reqType: "delete" });
+});
+
+server.listen(port, () => {
+  console.log("Server is running at ", port);
+});
