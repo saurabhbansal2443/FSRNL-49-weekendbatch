@@ -1,20 +1,17 @@
 import express from "express";
 import {
-  createProduct,
-  getAllData,
-  getSingleProduct,
-  replaceProduct,
-  updateProduct,
-  deleteProduct,
+  createUser, updateUser , replaceUser, deleteUser, getOne , getAll , signup , login
 } from "../Controllers/users.controllers.js";
 let router = express.Router();
 
 router
-  .post("/", createProduct)
-  .get("/", getAllData)
-  .get("/:id", getSingleProduct)
-  .put("/:id", replaceProduct)
-  .patch("/:id", updateProduct)
-  .delete("/:id", deleteProduct);
+  .post("/", createUser)
+  .patch("/" , updateUser)
+  .put( "/" , replaceUser)
+  .delete( "/" , deleteUser)
+  .get("/getone" , getOne)
+  .get("/" , getAll)
+  .post("/signup" , signup)
+  .post("/login" , login )
 
   export default router;
