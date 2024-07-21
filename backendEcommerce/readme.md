@@ -26,4 +26,7 @@
 -- in the index file using the built middelwares 
 -- using the user routes as well
 
+-- signup controller completed 
+
+
 
