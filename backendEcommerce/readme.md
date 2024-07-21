@@ -18,4 +18,12 @@
 
 ---  Completed the model 
 
+-- given only structure to controllers 
+-- exported the controllers 
+-- making the user routes 
+-- exporting the user route 
+
+-- in the index file using the built middelwares 
+-- using the user routes as well
+
 
