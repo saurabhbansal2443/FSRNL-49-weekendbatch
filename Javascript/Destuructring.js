@@ -21,3 +21,15 @@ let obj = {
 let {age , company } = obj
 
 console.log(  age , company)
+
+
+
+function sum( a){
+    return function ( b){
+        return a+ b ;
+    }
+}
+
+let fn = sum(2)
+
+console.log( fn(3))
