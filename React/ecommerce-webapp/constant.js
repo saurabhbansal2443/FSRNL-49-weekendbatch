@@ -1,0 +1,1 @@
+export let userApi = "https://fsrnl49-ecommerce-backend.onrender.com/users"

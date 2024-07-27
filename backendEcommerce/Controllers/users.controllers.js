@@ -3,7 +3,7 @@ import User from "../Models/users.models.js";
 let cookieOption = {
   httpOnly: true,
   secure: true,
-  sameSite: "none",
+  sameSite: "None",
 };
 
 let signup = async (req, res) => {
@@ -71,12 +71,59 @@ let login = async (req, res) => {
     return res.status(500).send({ result: false, message: err.message });
   }
 };
+// from herre private api started
+let getUser = (req, res) => {
+  if (!req.user) {
+    return res
+      .status(401)
+      .send({ result: false, message: "User not authenticated " });
+  }
+  try {
+    let user = req.user;
+    return res
+      .status(200)
+      .send({ result: true, message: "user profile ", data: user });
+  } catch (err) {
+    return res.status(500).send({ result: false, message: err.message });
+  }
+};
 
-let getUser = (req, res) => {};
+let updateUser = async (req, res) => {
+  if (!req.user) {
+    return res
+      .status(401)
+      .send({ result: false, message: "User not authenticated " });
+  }
+  try {
+    let { _id } = req.user;
+    let updatedUser = await User.findByIdAndUpdate(_id, req.body, {
+      new: true,
+    });
 
-let updateUser = (req, res) => {};
+    return res
+      .status(200)
+      .send({
+        result: true,
+        message: "user updated succesfully ",
+        data: updatedUser,
+      });
+  } catch (err) {
+    return res.status(500).send({ result: false, message: err.message });
+  }
+};
 
-let logout = (req, res) => {};
+let logout = (req, res) => {
+  if (!req.user) {
+    return res
+      .status(401)
+      .send({ result: false, message: "User not authenticated " });
+  }
+  try {
+    return res.clearCookie("Token" , cookieOption).send({ result: true , message:"Logout succesfull "})
+  } catch (err) {
+    return res.status(500).send({ result: false, message: err.message });
+  }
+};
 
 export { signup, login, getUser, updateUser, logout };
 // signup
